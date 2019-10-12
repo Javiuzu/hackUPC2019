@@ -1437,3 +1437,49 @@ A content process crashed and MOZ_CRASHREPORTER_SHUTDOWN is set, shutting down
 1570917813516	Marionette	INFO	Stopped listening on port 45829
 console.error: (new Error("SessionFile is closed", "resource:///modules/sessionstore/SessionFile.jsm", 433))
 1570917820659	Marionette	INFO	Stopped listening on port 38191
+1570917882528	Marionette	INFO	Stopped listening on port 45307
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+console.error: (new Error("Connection closed before committing the transaction.", "resource://gre/modules/Sqlite.jsm", 683))
+1570917883710	Marionette	INFO	Stopped listening on port 33127
+1570917884755	Marionette	INFO	Stopped listening on port 34375
+console.error: (new Error("Connection closed before committing the transaction.", "resource://gre/modules/Sqlite.jsm", 683))
+1570917886459	Marionette	INFO	Stopped listening on port 35599
+[Parent 17831, Gecko_IOThread] WARNING: pipe error (95): Connection reset by peer: file /build/firefox-y_KX3Y/firefox-69.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+[Parent 17831, Gecko_IOThread] WARNING: pipe error (81): Connection reset by peer: file /build/firefox-y_KX3Y/firefox-69.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+1570917887781	Marionette	INFO	Stopped listening on port 37513
+[Parent 16897, Gecko_IOThread] WARNING: pipe error (75): Connection reset by peer: file /build/firefox-y_KX3Y/firefox-69.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+[Parent 16897, Gecko_IOThread] WARNING: pipe error (95): Connection reset by peer: file /build/firefox-y_KX3Y/firefox-69.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+1570917889808	Marionette	INFO	Stopped listening on port 46597
+[Parent 16466, Gecko_IOThread] WARNING: pipe error (102): Connection reset by peer: file /build/firefox-y_KX3Y/firefox-69.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+[Parent 16466, Gecko_IOThread] WARNING: pipe error (81): Connection reset by peer: file /build/firefox-y_KX3Y/firefox-69.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+[Parent 16243, Gecko_IOThread] WARNING: pipe error (82): Connection reset by peer: file /build/firefox-y_KX3Y/firefox-69.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+[Parent 16243, Gecko_IOThread] WARNING: pipe error (84): Connection reset by peer: file /build/firefox-y_KX3Y/firefox-69.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+1570917895155	Marionette	INFO	Stopped listening on port 44425
+1570917895317	Marionette	INFO	Stopped listening on port 36659
+console.error: (new Error("Connection closed before committing the transaction.", "resource://gre/modules/Sqlite.jsm", 683))
+1570917897974	Marionette	INFO	Stopped listening on port 41169
+1570917899240	Marionette	INFO	Stopped listening on port 43443
+1570917899975	Marionette	INFO	Stopped listening on port 36459
+[Parent 15564, Gecko_IOThread] WARNING: pipe error (84): Connection reset by peer: file /build/firefox-y_KX3Y/firefox-69.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+1570917901981	Marionette	INFO	Stopped listening on port 39617
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x36006B,name=PContent::Msg_SuspendInputEventQueue) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x360069,name=PContent::Msg_FlushInputEventQueue) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x36006A,name=PContent::Msg_ResumeInputEventQueue) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x36004B,name=PContent::Msg_Shutdown) Channel error: cannot send/recv
+
+A content process crashed and MOZ_CRASHREPORTER_SHUTDOWN is set, shutting down
+1570917921264	Marionette	INFO	Stopped listening on port 35301
