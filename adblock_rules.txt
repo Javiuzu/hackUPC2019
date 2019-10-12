@@ -537,6 +537,8 @@
 .adtech_
 .adtooltip&
 .adv.cdn.
+.cdn.
+cdn.
 .advert.$domain=~advert.ae|~advert.io|~advert.ly|~advert.media
 .AdvertismentBottom.
 .advertmarket.

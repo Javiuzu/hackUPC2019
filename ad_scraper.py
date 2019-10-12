@@ -4,22 +4,22 @@ import adblockparser
 import time
 from adblockparser import AdblockRules
 
-
-url = 'https://stackoverflow.com/questions/58356824/optimal-strategy-picking-from-ends-of-array-with-contraints'
+url = 'https://www.wikihow.com/Be-a-Communist'
 rules_file = open("adblock_rules.txt", "r")
 ads = []
 
 def search_href(driver):
 	elems = driver.find_elements_by_xpath("//*[@href]")
 	for link in elems:
-		if rules.should_block(link.get_attribute("href")): 
+		if rules.should_block(link.get_attribute("href")) or 'img_ad' in link.get_attribute("class"):
 			ads.append(link.get_attribute("href"))
 
 def search_src(driver):
 	elems = driver.find_elements_by_xpath("//*[@src]")
 	for link in elems:
-		if rules.should_block(link.get_attribute("src")): 
-			ads.append(link.get_attribute("src"))	
+		if rules.should_block(link.get_attribute("src")) or'image' in link.get_attribute("class") or 'img_ad' in link.get_attribute("class"):
+			ads.append(link.get_attribute("src"))
+
 
 
 def find_all_iframes(driver):
@@ -56,8 +56,17 @@ search_src(driver)
 
 find_all_iframes(driver)
 
-valid_ads = [elem for elem in ads if elem.endswith(".png" ) or elem.endswith(".gif") or elem.endswith(".jpg") or elem.endswith(".jpeg")]
-
-print(valid_ads)
-
 driver.close()
+
+valid_ads = [elem for elem in ads if not elem.endswith(".js") and rules.should_block(elem)] 
+
+i = 0
+for ad in valid_ads:
+	ad_driver = webdriver.Firefox()
+	ad_driver.get(ad)
+	ad_driver.save_screenshot("ad"+str(i)+".png")
+	i = i + 1
+	print(i)
+
+
+
