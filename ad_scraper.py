@@ -1,10 +1,11 @@
 from selenium import webdriver
 import requests
 import adblockparser
+import time
 from adblockparser import AdblockRules
 
 
-url = 'https://www.youtube.com/watch?v=6ftCIfHwqtg'
+url = 'https://stackoverflow.com/questions/51284071/how-to-get-all-the-link-in-page-using-selenium-python	'
 rules_file = open("adblock_rules.txt", "r")
 
 
@@ -21,11 +22,19 @@ rules = AdblockRules(raw_rules)
 driver = webdriver.Firefox()
 driver.get(url)
 body = driver.page_source
-num_adds_selenium = 0
-
-elems = driver.find_elements_by_xpath("//a[href]")
+adds = []
+time.sleep(5)
+elems = driver.find_elements_by_xpath("//*[@href]")
 for link in elems:
-	print(link.get_attribute("href"))
-print(elems.len())
+	if rules.should_block(link.get_attribute("href")): 
+		adds.append(link.get_attribute("href"))
+
+elems = driver.find_elements_by_xpath("//*[@src]")
+for link in elems:
+	if rules.should_block(link.get_attribute("src")): 
+		adds.append(link.get_attribute("src"))
+
+
+print(adds)
 
 driver.close()
