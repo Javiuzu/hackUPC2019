@@ -8,6 +8,10 @@ from selenium.webdriver.firefox.options import Options
 rules_file = open("adblock_rules.txt", "r")
 ads = []
 
+
+
+
+
 def search_href(driver):
 	elems = driver.find_elements_by_xpath("//*[@href]")
 	for link in elems:
@@ -45,28 +49,32 @@ while raw_rule:
 rules = AdblockRules(raw_rules)
 
 
-driver = webdriver.Firefox()
-driver.get(url)
-body = driver.page_source
-time.sleep(5)
+#driver = webdriver.Firefox()
+#driver.get(url)
+#body = driver.page_source
+#time.sleep(5)
+def getAds(url, ads_dir):
+	options = Options()
+	options.headless = True
+	driver = webdriver.Firefox(options=options)
+	driver.get(url)
+	body = driver.page_source
+	search_href(driver)
+	search_src(driver)
 
-search_href(driver)
-search_src(driver)
+	find_all_iframes(driver)
 
+	
 
-find_all_iframes(driver)
-
-driver.close()
-
-valid_ads = [elem for elem in ads if not elem.endswith(".js") and rules.should_block(elem)] 
-valid_ads = list(dict.fromkeys(valid_ads)) #erases duplicate elements in the list
-
-options = Options()
-i = 0
-options.headless = True
-for ad in valid_ads:
-	adDriver = webdriver.Firefox(options = options)
-	adDriver.get(ad)
-	adDriver.save_screenshot("ad"+str(i)+".png")
-	i = i + 1
-	adDriver.close()
+	valid_ads = [elem for elem in ads if not elem.endswith(".js") and rules.should_block(elem)] 
+	valid_ads = list(dict.fromkeys(valid_ads)) #erases duplicate elements in the list
+	print(len(valid_ads))	
+	options = Options()
+	i = 0
+	options.headless = True
+	for ad in valid_ads:
+		adDriver = webdriver.Firefox(options = options)
+		adDriver.get(ad)
+		adDriver.save_screenshot(ads_dir+"/ad"+str(i)+".png")
+		i = i + 1
+		adDriver.close()
