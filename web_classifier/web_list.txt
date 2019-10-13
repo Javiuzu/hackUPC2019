@@ -1,0 +1,13 @@
+#If a line has a '#' synbol at the start, that line will be ignored (won't be loaded).
+#
+#Examples:
+http://www.bbc.com/news/science-environment-38108858
+http://www.bbc.com/news/uk-politics-38098451
+http://www.bbc.com/news/health-38077263
+http://www.bbc.com/news/world-us-canada-38083738
+https://en.wikipedia.org/wiki/Global_warming
+https://www.theguardian.com/sport/2016/nov/27/england-adil-rashid-promise-india-virat-kohli
+https://en.wikipedia.org/wiki/Financial_crisis
+http://www.npr.org/sections/therecord/2016/11/11/501616131/love-itself-leonard-cohens-holy-touch
+https://www.theguardian.com/sport/2016/nov/27/conor-mcgregor-gives-up-ufc-featherweight-title-jose-aldo
+https://www.theguardian.com/us-news/2016/nov/26/hillary-clinton-attorney-jill-stein-wisconsin-recount
