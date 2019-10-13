@@ -1,10 +1,10 @@
 from selenium import webdriver
-import requests
 import adblockparser
 import time
 from adblockparser import AdblockRules
+from selenium.webdriver.firefox.options import Options
 
-url = 'https://www.wikihow.com/Be-a-Communist'
+
 rules_file = open("adblock_rules.txt", "r")
 ads = []
 
@@ -17,7 +17,7 @@ def search_href(driver):
 def search_src(driver):
 	elems = driver.find_elements_by_xpath("//*[@src]")
 	for link in elems:
-		if rules.should_block(link.get_attribute("src")) or'image' in link.get_attribute("class") or 'img_ad' in link.get_attribute("class"):
+		if rules.should_block(link.get_attribute("src")) or 'img_ad' in link.get_attribute("class"):
 			ads.append(link.get_attribute("src"))
 
 
@@ -59,14 +59,14 @@ find_all_iframes(driver)
 driver.close()
 
 valid_ads = [elem for elem in ads if not elem.endswith(".js") and rules.should_block(elem)] 
+valid_ads = list(dict.fromkeys(valid_ads)) #erases duplicate elements in the list
 
+options = Options()
 i = 0
+options.headless = True
 for ad in valid_ads:
-	ad_driver = webdriver.Firefox()
-	ad_driver.get(ad)
-	ad_driver.save_screenshot("ad"+str(i)+".png")
+	adDriver = webdriver.Firefox(options = options)
+	adDriver.get(ad)
+	adDriver.save_screenshot("ad"+str(i)+".png")
 	i = i + 1
-	print(i)
-
-
-
+	adDriver.close()
