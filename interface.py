@@ -2,13 +2,14 @@ from wordcloud import WordCloud, STOPWORDS
 import matplotlib.pyplot as plt 
 import pandas as pd 
 
-def main():
+def generateWordCloud(word_dir):
     
     stopwords = set(STOPWORDS)
     
-    comment_words = "hi hi hi bue bye bye"
+    word_file = open(word_dir+"/cloud.txt", 'r')
+    comment_words = word_file.read()
     
-    wordcloud = WordCloud(width = 800, height = 800, 
+    wordcloud = WordCloud(width = 1000, height = 1000, 
                     background_color ='white', 
                     stopwords = stopwords, 
                     min_font_size = 10).generate(comment_words) 
@@ -20,7 +21,3 @@ def main():
     plt.tight_layout(pad = 0) 
     
     plt.show() 
-    
-    
-    
-main()

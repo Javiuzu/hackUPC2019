@@ -174,24 +174,26 @@ def main_classify_webs():
         #content = cleanHtml(content)
         
         #file_read
-        ads = json.load(open("./tmp/words/words.dict", 'r'))
+        ads_file = open("./tmp/words/ad.txt", 'r')
+        content = ads_file.read()
         
         classified_ads = []
-        for content in ads:
-            translator = Translator()
-            if translator.detect(content).lang != "en":
-                new_word = (translator.translate(content).text).encode('ascii','ignore')
-                print type(new_word)
-                content = new_word
-            
-            dic = count_words_web(content)
-            llista_millors_web = top_words_web(dic,50)
-            dict_feat_vector_web = create_features_web(llista_millors_web,best_words)
-            clsf = bayes_web_classify(words_topics,top_words_list(best_words),dict_feat_vector_web)
-            #print "ha estat classificada com a:",dic_id_topic[clsf],"\n"
-            #print "---------------------------------------------------------------------------------------"
-            classified_ads.append[dic_id_topic[clsf]]
+        
 
+        translator = Translator()
+        if translator.detect(content).lang != "en":
+            new_word = (translator.translate(content).text).encode('ascii','ignore')
+            print type(new_word)
+            content = new_word
+        
+        dic = count_words_web(content)
+        llista_millors_web = top_words_web(dic,50)
+        dict_feat_vector_web = create_features_web(llista_millors_web,best_words)
+        clsf = bayes_web_classify(words_topics,top_words_list(best_words),dict_feat_vector_web)
+        #print "ha estat classificada com a:",dic_id_topic[clsf],"\n"
+        #print "---------------------------------------------------------------------------------------"
+        #classified_ad = dic_id_topic[clsf]
+        classified_ad = dic_id_topic
         classified_file = open("./tmp/words/class_words.txt", "w+")
-        classified_file.write(classified_ads)
+        classified_file.write(str(classified_ad))
 main_classify_webs()
