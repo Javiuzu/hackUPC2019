@@ -1,8 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 import multiprocessing
-from random import seed
-from random import randint
+
 
 def html_worker(x, options, webList):
   seed()
