@@ -25,7 +25,7 @@ def main():
     print("Fuck off")
     options = Options()
     options.headless = True
-    adMines=["https://collider.com", "https://clickondetroit.com", "https://nationalinterest.org"]
+    adMines=["https://www.digitaltrends.com/cool-tech/nasa-esa-images-water-mars/"]
     loadPages(adMines, options)
     
 
